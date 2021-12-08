@@ -34,7 +34,9 @@
     "prestart": "npm run rebuild",
     "start": "node -r source-map-support/register .",
     "clean": "lb-clean dist *.tsbuildinfo .eslintcache",
-    "rebuild": "npm run clean && npm run build"
+    "rebuild": "npm run clean && npm run build",
+    "postinstall":"mpm run build",
+    "start:prod":"node dist/index"
   },
   "repository": {
     "type": "git",
@@ -49,13 +51,20 @@
     "!*/__tests__"
   ],
   "dependencies": {
+    "@loopback/authentication": "^7.3.4",
     "@loopback/boot": "^3.4.4",
     "@loopback/core": "^2.18.0",
     "@loopback/repository": "^3.7.3",
     "@loopback/rest": "^10.1.0",
     "@loopback/rest-explorer": "^3.3.4",
+    "@loopback/security": "^0.5.4",
     "@loopback/service-proxy": "^3.2.4",
+    "crypto-js": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
     "loopback-connector-mongodb": "^5.6.0",
+    "node-fetch": "^2.6.6",
+    "parse-bearer-token": "^1.0.1",
+    "password-generator": "^2.3.2",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
